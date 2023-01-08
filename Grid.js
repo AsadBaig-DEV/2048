@@ -24,7 +24,6 @@ export default class Grid {
   randomEmptyCell() {
     const randomIndex = Math.floor(Math.random() * this.#emptyCells.length)
     return this.#emptyCells[randomIndex]
-
   }
 }
 
@@ -42,6 +41,13 @@ class Cell {
 
   get tile() {
     return this.#tile
+  }
+
+  set tile(value) {
+    this.#tile = value
+    if (value == null) return
+    this.#tile.x = this.#x
+    this.#tile.y = this.#y
   }
 }
 
